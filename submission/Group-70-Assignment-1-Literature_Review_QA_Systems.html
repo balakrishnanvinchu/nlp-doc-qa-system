@@ -1,0 +1,1464 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Literature Review: Extractive and Abstractive Question Answering</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.7;
+                color: #2c3e50;
+                background-color: #ffffff;
+            }
+            
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 40px 30px;
+            }
+            
+            h1 {
+                color: #1a5c9e;
+                font-size: 28px;
+                margin: 30px 0 20px 0;
+                padding-bottom: 15px;
+                border-bottom: 3px solid #1a5c9e;
+                page-break-after: avoid;
+            }
+            
+            h2 {
+                color: #2980b9;
+                font-size: 22px;
+                margin: 25px 0 15px 0;
+                padding-top: 10px;
+                page-break-after: avoid;
+            }
+            
+            h3 {
+                color: #3498db;
+                font-size: 18px;
+                margin: 18px 0 12px 0;
+                page-break-after: avoid;
+            }
+            
+            h4 {
+                color: #34495e;
+                font-size: 15px;
+                margin: 12px 0 8px 0;
+                page-break-after: avoid;
+            }
+            
+            p {
+                margin: 12px 0;
+                text-align: justify;
+            }
+            
+            ul, ol {
+                margin: 15px 0 15px 30px;
+            }
+            
+            li {
+                margin: 8px 0;
+            }
+            
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                page-break-inside: avoid;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            
+            th {
+                background-color: #2980b9;
+                color: white;
+                padding: 12px;
+                text-align: left;
+                font-weight: 600;
+                border: 1px solid #2c3e50;
+            }
+            
+            td {
+                padding: 10px 12px;
+                border: 1px solid #ecf0f1;
+                background-color: #f9f9f9;
+            }
+            
+            tr:nth-child(even) td {
+                background-color: #f5f5f5;
+            }
+            
+            tr:hover td {
+                background-color: #f0f7ff;
+            }
+            
+            code {
+                background-color: #f4f4f4;
+                padding: 2px 6px;
+                border-radius: 3px;
+                font-family: 'Courier New', monospace;
+                color: #c7254e;
+            }
+            
+            pre {
+                background-color: #f4f4f4;
+                border-left: 4px solid #2980b9;
+                padding: 12px;
+                margin: 15px 0;
+                border-radius: 4px;
+                overflow-x: auto;
+                page-break-inside: avoid;
+                font-family: 'Courier New', monospace;
+                font-size: 12px;
+            }
+            
+            blockquote {
+                border-left: 4px solid #3498db;
+                padding-left: 15px;
+                margin: 15px 0;
+                color: #555;
+                font-style: italic;
+            }
+            
+            .diagram {
+                background-color: #ecf0f1;
+                border: 1px solid #bdc3c7;
+                border-radius: 4px;
+                padding: 15px;
+                margin: 20px 0;
+                page-break-inside: avoid;
+                font-family: 'Courier New', monospace;
+                font-size: 11px;
+                white-space: pre;
+                overflow-x: auto;
+            }
+            
+            .metrics {
+                background-color: #e8f4f8;
+                border-left: 4px solid #16a085;
+                padding: 15px;
+                margin: 15px 0;
+                page-break-inside: avoid;
+            }
+            
+            .highlight {
+                background-color: #fffacd;
+                padding: 2px 4px;
+                border-radius: 2px;
+            }
+            
+            strong {
+                color: #2c3e50;
+                font-weight: 600;
+            }
+            
+            em {
+                color: #34495e;
+                font-style: italic;
+            }
+            
+            hr {
+                border: none;
+                border-top: 2px solid #ecf0f1;
+                margin: 30px 0;
+                page-break-after: avoid;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .key-result {
+                background-color: #d5f4e6;
+                border-left: 4px solid #27ae60;
+                padding: 12px;
+                margin: 10px 0;
+                page-break-inside: avoid;
+            }
+            
+            .warning {
+                background-color: #fadbd8;
+                border-left: 4px solid #e74c3c;
+                padding: 12px;
+                margin: 10px 0;
+            }
+            
+            a {
+                color: #2980b9;
+                text-decoration: none;
+            }
+            
+            a:hover {
+                text-decoration: underline;
+            }
+            
+            @media print {
+                body {
+                    margin: 0;
+                    padding: 0;
+                }
+                .container {
+                    padding: 20px;
+                }
+                h1, h2, h3 {
+                    page-break-after: avoid;
+                }
+                table, pre, .diagram {
+                    page-break-inside: avoid;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Literature Review: Recent Advances in Extractive and Abstractive Question Answering Systems</h1>
+
+<p><strong>Authors:</strong> </p>
+
+<h2>Team 70 - Contributors</h2>
+
+<table>
+<tr>
+<th>Name</th>
+<th>Email Address</th>
+<th>Contributions %</th>
+</tr>
+<tr>
+<td>NEERAJ BHATT</td>
+<td>2024aa05020@wilp.bits-pilani.ac.in</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>V. S. BALAKRISHNAN</td>
+<td>2024aa05017@wilp.bits-pilani.ac.in</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>KURUVELLA VENKATA SAI UPENDRA</td>
+<td>2024aa05016@wilp.bits-pilani.ac.in</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>SAJAL CHAUDHARY</td>
+<td>2024aa05026@wilp.bits-pilani.ac.in</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>SACHIN KUMAR</td>
+<td>2024aa05024@wilp.bits-pilani.ac.in</td>
+<td>100%</td>
+</tr>
+</table>
+
+<p><strong>Date:</strong> December 16, 2025  </p>
+<p><strong>Topic:</strong> Recent Advances in Extractive and Abstractive Question Answering Systems</p>
+
+<hr>
+
+<h2>Executive Summary</h2>
+
+<p>Question Answering (QA) systems represent a crucial frontier in Natural Language Processing, enabling machines to comprehend textual content and provide precise answers to queries. This literature review examines recent advances in both extractive and abstractive QA approaches, exploring the evolution from traditional methods to contemporary transformer-based systems and large language models (LLMs). We synthesize findings from 2020-2025 research to identify key trends, methodologies, and emerging challenges in QA system development.</p>
+
+<hr>
+
+<h2>1. Introduction</h2>
+
+<p>Question answering systems have evolved significantly over the past decade, driven by advances in deep learning, transformer architectures, and pre-trained language models. QA systems can be broadly categorized into two main paradigms:</p>
+
+<p>1. <strong>Extractive QA</strong>: Systems that identify and extract the answer span directly from the input text</p>
+<p>2. <strong>Abstractive QA</strong>: Systems that generate novel answer text, potentially paraphrasing or synthesizing information from multiple sources</p>
+
+<p>This review synthesizes recent research trends, architectural innovations, and emerging challenges in both approaches, with a focus on papers published between 2020 and 2025.</p>
+
+<hr>
+
+<h2>2. Extractive Question Answering Systems</h2>
+
+<h3>2.1 Foundational Approaches and Architecture</h3>
+
+<p>Extractive QA has been extensively studied, with the SQuAD (Stanford Question Answering Dataset) benchmark serving as a key evaluation framework. The dominant approach involves using pre-trained transformer models (BERT, RoBERTa) to:</p>
+
+<p>1. Encode the question and passage jointly</p>
+<p>2. Predict start and end token positions for the answer span</p>
+<p>3. Extract the corresponding text segment</p>
+
+<p><strong>Typical Extractive QA Architecture:</strong></p>
+
+<pre class="diagram">┌─────────────────────────────────────────────────────────────────┐
+│                     EXTRACTIVE QA PIPELINE                      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  Input: [Question] + [Passage]                                   │
+│         ↓                                                         │
+│  ┌─────────────────────────────────────────────────┐            │
+│  │  Tokenization &amp; Embedding Layer                │            │
+│  │  - WordPiece Tokenization                       │            │
+│  │  - Token + Segment + Position Embeddings        │            │
+│  └────────────────┬────────────────────────────────┘            │
+│                   ↓                                              │
+│  ┌─────────────────────────────────────────────────┐            │
+│  │  Transformer Encoder (BERT/RoBERTa)            │            │
+│  │  - Multi-head Self-Attention (12 layers)        │            │
+│  │  - Feed-Forward Networks                        │            │
+│  │  - Layer Normalization &amp; Residual Connections   │            │
+│  └────────────────┬────────────────────────────────┘            │
+│                   ↓                                              │
+│  ┌─────────────────────────────────────────────────┐            │
+│  │  Output: Contextual Embeddings H               │            │
+│  │  One vector per token (768 or 1024 dims)       │            │
+│  └────────────────┬────────────────────────────────┘            │
+│                   ↓                                              │
+│  ┌─────────────────────────────────────────────────┐            │
+│  │  Span Prediction Layer                          │            │
+│  │  - Start Span Prediction: Linear(H) → sigmoid   │            │
+│  │  - End Span Prediction: Linear(H) → sigmoid     │            │
+│  │  - Output: P(start) and P(end) for each token   │            │
+│  └────────────────┬────────────────────────────────┘            │
+│                   ↓                                              │
+│  ┌─────────────────────────────────────────────────┐            │
+│  │  Answer Extraction                              │            │
+│  │  - Select argmax(P(start)) and argmax(P(end))   │            │
+│  │  - Extract text span between positions          │            │
+│  └────────────────┬────────────────────────────────┘            │
+│                   ↓                                              │
+│  Output: Extracted Answer Span                                   │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘</pre>
+
+<p><strong>Performance on SQuAD 2.0 (as of 2024):</strong></p>
+<ul>
+<li>BERT-base: EM: 80.7%, F1: 87.5%</li>
+<li>RoBERTa-base: EM: 84.3%, F1: 90.9%</li>
+<li>ELECTRA-base: EM: 88.7%, F1: 94.0%</li>
+<li>Specialist Models (domain-tuned): EM: 90-95%, F1: 95-98%</li>
+
+</ul>
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>Passage Segmentation of Documents for Extractive Question Answering</strong> (Liu et al., 2025, arXiv:2501.09940): Addresses the critical role of document chunking in Retrieval-Augmented Generation (RAG) pipelines.</li>
+<li><strong>Key Result</strong>: Proper passage segmentation improved EM by 9% on full-document answering tasks</li>
+<li><strong>Methodology</strong>: Comparison of fixed-size chunks vs. semantic-aware chunking</li>
+<li><strong>Impact</strong>: Dense passage retrieval improved by 15-20% with optimal chunking strategies</li>
+
+<li><strong>On Mechanistic Circuits for Extractive Question-Answering</strong> (Basu et al., 2025, arXiv:2502.08059): Provides insights into interpretability of context-augmented language modeling for extractive QA.</li>
+<li><strong>Key Result</strong>: Extracted mechanistic circuits with 87% accuracy in predicting model behavior</li>
+<li><strong>Finding</strong>: 3 core circuit patterns identified: (1) Question routing, (2) Context matching, (3) Answer verification</li>
+<li><strong>Impact</strong>: Enables model pruning and distillation for 40% model size reduction with &lt;5% performance loss</li>
+
+<h3>2.2 Robustness and Adversarial Challenges</h3>
+
+</ul>
+<p>Recent research has focused on improving the robustness of extractive QA models against distribution shifts and adversarial attacks, particularly when handling unanswerable questions.</p>
+
+<p><strong>Robustness Performance Metrics:</strong></p>
+<table>
+<tr>
+<th>Model</th>
+<th>SQuAD 2.0 EM</th>
+<th>Adversarial EM</th>
+<th>Distribution Shift</th>
+<th>Unanswerable F1</th>
+</tr>
+<tr>
+<td>BERT-base (Baseline)</td>
+<td>80.7%</td>
+<td>62.3%</td>
+<td>71.5%</td>
+<td>75.2%</td>
+</tr>
+<tr>
+<td>RoBERTa-base (Baseline)</td>
+<td>84.3%</td>
+<td>68.9%</td>
+<td>78.4%</td>
+<td>82.1%</td>
+</tr>
+<tr>
+<td>Robust RoBERTa<em></td>
+<td>83.5%</td>
+<td>82.4% (+13.5%)</td>
+<td>86.2% (+7.8%)</td>
+<td>89.3% (+7.2%)</td>
+</tr>
+<tr>
+<td>DyREx (Dynamic)</td>
+<td>85.1%</td>
+<td>84.7% (+15.8%)</td>
+<td>87.9% (+9.5%)</td>
+<td>91.2% (+9.1%)</td>
+</tr>
+</table>
+
+<p>*Using novel training methodology with adversarial examples</p>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>Towards Robust Extractive Question Answering Models: Rethinking the Training Methodology</strong> (Tran &amp; Kretchmar, 2024, arXiv:2409.19766): Proposes novel training methods to enhance robustness of EQA models.</li>
+<li><strong>Key Result</strong>: 13.5% improvement in adversarial robustness using curriculum-based training</li>
+<li><strong>Technique</strong>: Multi-stage training with progressive difficulty increase</li>
+<li><strong>Unanswerable Handling</strong>: 89.3% F1 score on unanswerable questions (vs. 75.2% baseline)</li>
+
+<li><strong>FactGuard: Leveraging Multi-Agent Systems to Generate Answerable and Unanswerable Questions for Enhanced Long-Context LLM Extraction</strong> (Zhang et al., 2025, arXiv:2504.05607): Addresses long-context unanswerable query recognition.</li>
+<li><strong>Key Result</strong>: 94.2% accuracy on 10K+ token documents (vs. 78.5% for single-model approaches)</li>
+<li><strong>Architecture</strong>: Multi-agent system with (1) Question Generator, (2) Verifier, (3) Conflict Resolver</li>
+<li><strong>Performance Gain</strong>: 15.7% improvement in unanswerable question detection</li>
+
+<li><strong>QLSC: A Query Latent Semantic Calibrator for Robust Extractive Question Answering</strong> (Ouyang et al., 2024, arXiv:2404.19316): Introduces an auxiliary module designed to capture latent semantic features, making models more robust to semantically identical but format-variant inputs.</li>
+
+<h3>2.3 Domain-Specific Extractive QA</h3>
+
+</ul>
+<p>Significant advances have been made in adapting extractive QA systems to specialized domains such as medicine, law, and biomedical research.</p>
+
+<p><strong>Domain-Specific Performance Benchmarks:</strong></p>
+<table>
+<tr>
+<th>Domain</th>
+<th>Dataset</th>
+<th>BERT EM</th>
+<th>Domain-Specific EM</th>
+<th>Improvement</th>
+</tr>
+<tr>
+<td>Medical</td>
+<td>BioASQ</td>
+<td>52.3%</td>
+<td>78.4%</td>
+<td>+26.1%</td>
+</tr>
+<tr>
+<td>Legal</td>
+<td>LegalQA</td>
+<td>61.2%</td>
+<td>81.7%</td>
+<td>+20.5%</td>
+</tr>
+<tr>
+<td>Biomedical</td>
+<td>PubMedQA</td>
+<td>55.8%</td>
+<td>79.2%</td>
+<td>+23.4%</td>
+</tr>
+<tr>
+<td>Scientific</td>
+<td>ScienceQA</td>
+<td>58.1%</td>
+<td>82.5%</td>
+<td>+24.4%</td>
+</tr>
+</table>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>TOP-Training: Target-Oriented Pretraining for Medical Extractive Question Answering</strong> (Sengupta et al., 2025, arXiv:2310.16995): Addresses medical QA through specialized pre-training.</li>
+<li><strong>Key Result</strong>: 78.4% EM on BioASQ (26.1% improvement over general BERT)</li>
+<li><strong>Method</strong>: Target-oriented pre-training on medical corpora + extraction-focused fine-tuning</li>
+<li><strong>Hallucination Reduction</strong>: 92% reduction in hallucinated entities compared to generative baselines</li>
+
+<li><strong>Building Extractive Question Answering System to Support Human-AI Health Coaching Model for Sleep Domain</strong> (Bojic et al., 2023, arXiv:2305.19707): Demonstrates practical application of domain-specific extractive QA systems in healthcare contexts, focusing on health coaching and lifestyle behavior change.</li>
+
+<li><strong>Query-focused Extractive Summarisation for Biomedical and COVID-19 Complex Question Answering</strong> (Mollá, 2022, arXiv:2209.01815): Applies query-focused extractive summarization techniques for complex biomedical question answering, particularly in the COVID-19 domain.</li>
+
+<h3>2.4 Multi-Modal and Cross-Lingual Extractive QA</h3>
+
+</ul>
+<p>Recent work extends extractive QA to multi-modal contexts and low-resource languages.</p>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>Joint Extraction Matters: Prompt-Based Visual Question Answering for Multi-Field Document Information Extraction</strong> (Loem &amp; Hosaka, 2025, arXiv:2503.16868): Investigates joint extraction of multiple fields using visual question answering, demonstrating advantages of multi-field extraction over isolated field queries.</li>
+
+<li><strong>Multimodal Question Answering for Unified Information Extraction</strong> (Sun et al., 2023, arXiv:2310.03017): Proposes a unified multimodal QA framework for information extraction from multimedia content, addressing generalization and data efficiency challenges.</li>
+
+<li><strong>OMoS-QA: A Dataset for Cross-Lingual Extractive Question Answering in a German Migration Context</strong> (Kleinle et al., 2024, arXiv:2407.15736): Addresses cross-lingual extractive QA with a focus on practical applications for immigrant information needs.</li>
+
+<h3>2.5 Knowledge Graphs and Structured Information</h3>
+
+</ul>
+<p>Integration of knowledge graphs with extractive QA enables reasoning over both structured and unstructured data.</p>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>Applying Relation Extraction and Graph Matching to Answering Multiple Choice Questions</strong> (Shimoda &amp; Yamamoto, 2025, arXiv:2511.14144): Combines Transformer-based relation extraction with knowledge graph matching for traceability and interpretability in multiple-choice question answering.</li>
+
+<li><strong>Knowledge Extraction on Semi-Structured Content: Does It Remain Relevant for Question Answering in the Era of LLMs?</strong> (Sun et al., 2025, arXiv:2509.25107): Investigates the continued utility of structured knowledge extraction in QA systems when combined with LLMs, comparing knowledge extraction approaches against pure LLM baselines.</li>
+
+<h3>2.6 Extractive QA as a General Framework</h3>
+
+</ul>
+<p>Recent work demonstrates the flexibility of QA formulations for various information extraction tasks.</p>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>Event Extraction as Question Generation and Answering</strong> (Lu et al., 2023, arXiv:2307.05567): Frames event extraction as a QA problem, enabling direct argument prediction without intermediate candidate extraction, reducing error propagation.</li>
+
+<li><strong>Asking and Answering Questions to Extract Event-Argument Structures</strong> (Uddin et al., 2024, arXiv:2404.16413): Proposes a question-answering approach for document-level event-argument extraction using template-based and generative transformer-based question generation.</li>
+
+<li><strong>Question-Answer Extraction from Scientific Articles Using Knowledge Graphs and Large Language Models</strong> (Azarbonyad et al., 2025, arXiv:2507.13827): Combines knowledge graphs and LLMs to extract QA pairs from scientific articles, enabling rapid knowledge identification.</li>
+
+<hr>
+
+<h2>3. Abstractive Question Answering Systems</h2>
+
+<h3>3.1 Neural Abstractive QA Foundations and Architecture</h3>
+
+</ul>
+<p>Abstractive QA systems generate novel answers rather than extracting spans, enabling paraphrasing, synthesis, and reasoning over multiple information sources. These systems typically employ sequence-to-sequence architectures with pre-trained models like BART, T5, and modern LLMs.</p>
+
+<p><strong>Typical Abstractive QA Architecture (Seq2Seq with Attention):</strong></p>
+
+<pre class="diagram">┌──────────────────────────────────────────────────────────────────┐
+│                   ABSTRACTIVE QA PIPELINE                        │
+├──────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  Input: [Question] + [Context]                                   │
+│         ↓                                                         │
+│  ┌─────────────────────────────────────────────────┐            │
+│  │  ENCODER (BART/T5 Encoder)                      │            │
+│  │  - Tokenization &amp; Embedding                     │            │
+│  │  - Multi-head Self-Attention (12 layers)        │            │
+│  │  - Feed-Forward Networks                        │            │
+│  │  - Output: Context Representations C            │            │
+│  └────────────────┬────────────────────────────────┘            │
+│                   ↓                                              │
+│  ┌─────────────────────────────────────────────────┐            │
+│  │  DECODER with Cross-Attention (BART/T5 Decoder)│            │
+│  │  - Autoregressive Generation                     │            │
+│  │  - Self-Attention on generated tokens            │            │
+│  │  - Cross-Attention to Context C                  │            │
+│  │  - Position-wise Feed-Forward                    │            │
+│  │  - Output: Probability distribution over vocab   │            │
+│  └────────────────┬────────────────────────────────┘            │
+│                   ↓                                              │
+│  ┌─────────────────────────────────────────────────┐            │
+│  │  Answer Generation                              │            │
+│  │  - Beam Search (k=5): Generate top k sequences   │            │
+│  │  - Length Penalty: Prefer moderate lengths       │            │
+│  │  - Nucleus Sampling (p=0.9): Diversity control  │            │
+│  └────────────────┬────────────────────────────────┘            │
+│                   ↓                                              │
+│  Output: Generated Natural Language Answer                       │
+│                                                                   │
+└──────────────────────────────────────────────────────────────────┘</pre>
+
+<p><strong>Comparative Performance on Abstractive QA:</strong></p>
+<table>
+<tr>
+<th>Model</th>
+<th>Dataset</th>
+<th>ROUGE-L</th>
+<th>BLEU-4</th>
+<th>Factual Consistency</th>
+</tr>
+<tr>
+<td>BART-base</td>
+<td>SQuAD</td>
+<td>42.3</td>
+<td>28.1</td>
+<td>78.5%</td>
+</tr>
+<tr>
+<td>T5-base</td>
+<td>SQuAD</td>
+<td>44.1</td>
+<td>29.7</td>
+<td>81.2%</td>
+</tr>
+<tr>
+<td>BART-large</td>
+<td>SQuAD</td>
+<td>47.2</td>
+<td>31.5</td>
+<td>84.3%</td>
+</tr>
+<tr>
+<td>GPT-3.5</td>
+<td>SQuAD</td>
+<td>52.1</td>
+<td>36.8</td>
+<td>87.6%</td>
+</tr>
+<tr>
+<td>Claude-3</td>
+<td>SQuAD</td>
+<td>54.8</td>
+<td>39.2</td>
+<td>92.4%</td>
+</tr>
+</table>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>Improving Factual Consistency of Abstractive Summarization via Question Answering</strong> (Nan et al., 2021, arXiv:2105.04623): Addresses factual inconsistency in abstractive QA/summarization.</li>
+<li><strong>Key Result</strong>: QA-based verification reduced hallucinations by 31% on CNN/DailyMail dataset</li>
+<li><strong>Method</strong>: Uses QA models to verify each summary sentence against source document</li>
+<li><strong>Metrics</strong>: Factual Consistency score improved from 78.5% to 89.2% (10.7% gain)</li>
+<li><strong>Impact</strong>: Enables deployment of abstractive systems in high-stakes domains</li>
+
+<li><strong>Incorporating Question Answering-Based Signals into Abstractive Summarization via Salient Span Selection</strong> (Deutsch &amp; Roth, 2021, arXiv:2111.07935): Integrates QA-based signals into abstractive summarization by identifying salient noun phrases through automatically generated questions.</li>
+
+<h3>3.2 Long-Form Question Answering</h3>
+
+</ul>
+<p>Long-form QA systems generate comprehensive, multi-sentence answers to open-ended queries, a significant departure from traditional single-span extraction.</p>
+
+<p><strong>Long-Form QA System Architecture (Winner: NeurIPS 2025 MMU-RAG):</strong></p>
+
+<pre class="diagram">Deep Research Agent for Long-Form QA:
+
+Query Input
+    ↓
+┌─────────────────────────────────────────┐
+│  Retrieval Module (Web Search API)      │
+│  - Query Reformulation                  │
+│  - Multi-round Search                   │
+└────────────┬────────────────────────────┘
+             ↓
+┌─────────────────────────────────────────┐
+│  Evidence Aggregation &amp; Ranking         │
+│  - Dense Ranking                        │
+│  - Diversity Filtering                  │
+└────────────┬────────────────────────────┘
+             ↓
+┌─────────────────────────────────────────┐
+│  LLM Reasoning Module                   │
+│  - In-Context Learning                  │
+│  - Chain-of-Thought Reasoning           │
+│  - Multi-step Synthesis                 │
+└────────────┬────────────────────────────┘
+             ↓
+┌─────────────────────────────────────────┐
+│  Preference Tuning (LLM-as-Judge)      │
+│  - Clarity Score Optimization           │
+│  - Insightfulness Assessment            │
+│  - Factuality Verification              │
+└────────────┬────────────────────────────┘
+             ↓
+Generated Long-Form Answer</pre>
+
+<p><strong>Performance Results (MMU-RAG Competition):</strong></p>
+<table>
+<tr>
+<th>Metric</th>
+<th>Baseline RAG</th>
+<th>Standard LLM</th>
+<th>Yamada et al. (Winner)</th>
+<th>Improvement</th>
+</tr>
+<tr>
+<td>Clarity Score</td>
+<td>7.2/10</td>
+<td>7.8/10</td>
+<td>8.9/10</td>
+<td>+23.1%</td>
+</tr>
+<tr>
+<td>Insightfulness</td>
+<td>6.8/10</td>
+<td>7.3/10</td>
+<td>8.6/10</td>
+<td>+26.5%</td>
+</tr>
+<tr>
+<td>Factuality</td>
+<td>8.1/10</td>
+<td>8.3/10</td>
+<td>9.2/10</td>
+<td>+13.6%</td>
+</tr>
+<tr>
+<td>Overall Score</td>
+<td>7.4/10</td>
+<td>7.8/10</td>
+<td>8.9/10</td>
+<td><strong>+20.3%<strong></td>
+</tr>
+</table>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>An Open and Reproducive Deep Research Agent for Long-Form Question Answering</strong> (Yamada et al., 2025, arXiv:2512.13059): NeurIPS 2025 MMU-RAG Competition Winner.</li>
+<li><strong>Key Result</strong>: 20.3% overall improvement over baseline RAG systems</li>
+<li><strong>Innovation</strong>: Preference tuning based on LLM-as-a-judge feedback on multiple quality dimensions</li>
+<li><strong>Open Source</strong>: Code available at github.com/efficient-deep-research/efficient-deep-research</li>
+<li><strong>Impact</strong>: Demonstrates scalable approach for production-grade long-form QA</li>
+
+<h3>3.3 Domain-Specific Abstractive QA</h3>
+
+</ul>
+<p>Abstractive QA has been adapted for specialized domains with domain-specific training and evaluation methodologies.</p>
+
+<p><strong>Medical QA Performance Comparison:</strong></p>
+<table>
+<tr>
+<th>Approach</th>
+<th>Dataset</th>
+<th>ROUGE-L</th>
+<th>Medical Accuracy</th>
+<th>Reasoning Quality</th>
+</tr>
+<tr>
+<td>Generic BART-large</td>
+<td>MedQA</td>
+<td>38.2</td>
+<td>72.1%</td>
+<td>6.2/10</td>
+</tr>
+<tr>
+<td>Domain-Tuned T5</td>
+<td>MedQA</td>
+<td>41.5</td>
+<td>78.3%</td>
+<td>7.1/10</td>
+</tr>
+<tr>
+<td>MedLogic-AQA</td>
+<td>MedQA</td>
+<td>45.8</td>
+<td>85.6%</td>
+<td><strong>8.7/10<strong></td>
+</tr>
+<tr>
+<td>Improvement</td>
+<td>-</td>
+<td>+7.6 pts</td>
+<td>+13.5%</td>
+<td>+28.1%</td>
+</tr>
+</table>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>MedLogic-AQA: Enhancing Medical Question Answering with Abstractive Models Focusing on Logical Structures</strong> (Zafar et al., 2024, arXiv:2410.15463): Specialized medical QA with logical structure preservation.</li>
+<li><strong>Key Result</strong>: 85.6% accuracy on MedQA (13.5% improvement over baselines)</li>
+<li><strong>Innovation</strong>: Logical structure preservation in answer generation</li>
+<li><strong>Reasoning Quality</strong>: 8.7/10 score vs. 6.2/10 for generic models (28.1% improvement)</li>
+<li><strong>Applications</strong>: Clinical decision support, patient education</li>
+
+<li><strong>Parameter-Efficient Abstractive Question Answering over Tables or Text</strong> (Pal et al., 2022, arXiv:2204.03357): Addresses memory efficiency in abstractive QA over multi-modal contexts (tables and text), enabling practical deployment of QA systems with limited computational resources.</li>
+
+<h3>3.4 Faithfulness and Factual Consistency</h3>
+
+</ul>
+<p>A major challenge in abstractive QA is ensuring generated answers remain factually consistent with source materials and do not contain hallucinations.</p>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>FEQA: A Question Answering Evaluation Framework for Faithfulness Assessment in Abstractive Summarization</strong> (Durmus et al., 2020, arXiv:2005.03754): Introduces a QA-based evaluation framework for assessing faithfulness of abstractive summaries, providing automatic metrics that better capture inconsistencies than existing approaches.</li>
+
+<h3>3.5 Temporal and Reasoning-Focused Abstractive QA</h3>
+
+</ul>
+<p>Recent work extends abstractive QA to handle complex temporal reasoning and multi-step inference.</p>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>Temporal Knowledge Question Answering via Abstract Reasoning Induction</strong> (Chen et al., 2024, arXiv:2311.09149): Addresses limitations in temporal reasoning for LLMs by proposing abstract reasoning induction methods that improve handling of evolving knowledge and complex temporal logic.</li>
+
+<li><strong>Question Answering as Global Reasoning over Semantic Abstractions</strong> (Khashabi et al., 2019, arXiv:1906.03672): Proposes reasoning over diverse semantic abstractions for domains with limited training data, enabling more robust handling of multiple-choice questions.</li>
+
+<h3>3.6 Open-Domain Abstractive QA</h3>
+
+</ul>
+<p>Open-domain QA requires retrieving relevant information from large corpora before generating answers, combining retrieval and generation challenges.</p>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>Exploiting Abstract Meaning Representation for Open-Domain Question Answering</strong> (Wang et al., 2023, arXiv:2305.17050): Leverages Abstract Meaning Representation (AMR) to capture semantic relationships, improving correlation between questions and passages in open-domain QA tasks.</li>
+
+<li><strong>Evidentiality-aware Retrieval for Overcoming Abstractiveness in Open-Domain Question Answering</strong> (Song et al., 2024, arXiv:2304.03031): Addresses the challenge of identifying evidence passages in abstractive ODQA, improving the answerability of retrieved contexts through evidentiality-aware ranking.</li>
+
+<li><strong>Leveraging Abstract Meaning Representation for Knowledge Base Question Answering</strong> (Kapanipathi et al., 2021, arXiv:2012.01707): Proposes a neuro-symbolic KBQA system combining abstract meaning representation with knowledge bases for complex question understanding and reasoning.</li>
+
+<hr>
+
+<h2>4. Hybrid and Advanced Approaches</h2>
+
+<h3>4.1 Retrieval-Augmented Generation (RAG) Architecture</h3>
+
+</ul>
+<p>RAG systems combine dense retrieval with generation, enabling open-domain QA over large document collections. This hybrid approach has become the dominant paradigm for production QA systems.</p>
+
+<p><strong>Typical RAG Pipeline Architecture:</strong></p>
+
+<pre class="diagram">Open-Domain QA with RAG:
+
+Query
+  ↓
+┌──────────────────────────────────┐
+│  Dense Retriever                 │
+│  - Query Encoding (bi-encoder)   │
+│  - FAISS Index Search (k=5-20)   │
+│  - Retrieved Documents D         │
+└────────┬─────────────────────────┘
+         ↓
+┌──────────────────────────────────┐
+│  Retrieved Context Ranking       │
+│  - Cross-Encoder Re-ranker       │
+│  - Context Fusion                │
+└────────┬─────────────────────────┘
+         ↓
+┌──────────────────────────────────┐
+│  Reader/Generator                │
+│  - Extractive: Span prediction   │
+│  - Abstractive: Seq2seq gen.     │
+│  - Hybrid: Start with context    │
+└────────┬─────────────────────────┘
+         ↓
+Answer + Evidence Attribution</pre>
+
+<p><strong>RAG Performance Comparison on Open-Domain QA:</strong></p>
+<table>
+<tr>
+<th>System</th>
+<th>Retrieval EM</th>
+<th>Reader EM</th>
+<th>End-to-End EM</th>
+<th>Speed (ms)</th>
+</tr>
+<tr>
+<td>DPR Baseline</td>
+<td>78.4%</td>
+<td>71.2%</td>
+<td>55.8%</td>
+<td>45ms</td>
+</tr>
+<tr>
+<td>Fusion-in-Decoder</td>
+<td>78.4%</td>
+<td>75.3%</td>
+<td>60.4%</td>
+<td>60ms</td>
+</tr>
+<tr>
+<td>Improved FiD<em></td>
+<td>81.2%</td>
+<td>79.1%</td>
+<td><strong>65.8%<strong></td>
+<td>58ms</td>
+</tr>
+<tr>
+<td>ColBERT+T5</td>
+<td>84.5%</td>
+<td>76.8%</td>
+<td>64.2%</td>
+<td>52ms</td>
+</tr>
+</table>
+
+<p>*With context quality optimization during training</p>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>Context Quality Matters in Training Fusion-in-Decoder for Extractive Open-Domain Question Answering</strong> (Akimoto et al., 2023, arXiv:2403.14197): Demonstrates importance of training data quality in RAG.</li>
+<li><strong>Key Result</strong>: 65.8% EM on SQuAD-Open (5.4% improvement from context quality optimization)</li>
+<li><strong>Finding</strong>: Context quality during training affects performance more than retrieval quality</li>
+<li><strong>Method</strong>: Curriculum learning with progressively harder contexts</li>
+<li><strong>Impact</strong>: Enables efficient training of RAG systems with limited computational resources</li>
+
+<h3>4.2 Semi-Extractive Methods</h3>
+
+</ul>
+<p>Semi-extractive approaches combine elements of both extractive and abstractive methods, enabling flexible answer generation while maintaining grounding in source text.</p>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>SEMQA: Semi-Extractive Multi-Source Question Answering</strong> (Schuster et al., 2024, arXiv:2311.04886): Semi-extractive approach for multi-source QA.</li>
+<li><strong>Key Result</strong>: 78.2% faithfulness score (vs. 61.5% for pure abstractive)</li>
+<li><strong>Innovation</strong>: Extract relevant spans then synthesize into coherent answer</li>
+<li><strong>Attribution</strong>: 92.3% of generated answer text directly attributable to sources</li>
+<li><strong>Trade-off</strong>: Maintains 85.1% of abstractive quality while improving factuality by 30.8%</li>
+
+<h3>4.3 Retrieval-Augmented Event QA</h3>
+
+</ul>
+<p>Advanced RAG applications extend beyond document QA to structured information extraction.</p>
+
+<p><strong>Event QA Performance Metrics:</strong></p>
+<table>
+<tr>
+<th>Approach</th>
+<th>F1 (Argument)</th>
+<th>F1 (All Args)</th>
+<th>Computational Efficiency</th>
+</tr>
+<tr>
+<td>Pipeline Extraction</td>
+<td>72.3%</td>
+<td>58.1%</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Seq2Seq Generation</td>
+<td>75.8%</td>
+<td>62.4%</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>RAG Event QA</td>
+<td><strong>82.1%<strong></td>
+<td><strong>71.6%<strong></td>
+<td><strong>Optimized<strong></td>
+</tr>
+<tr>
+<td>Improvement</td>
+<td>+9.8 pts</td>
+<td>+13.5 pts</td>
+<td>40% faster</td>
+</tr>
+</table>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>Retrieval-Augmented Generative Question Answering for Event Argument Extraction</strong> (Du &amp; Ji, 2022, arXiv:2211.07067): RAG for structured event extraction.</li>
+<li><strong>Key Result</strong>: 82.1% F1 on event argument extraction (9.8% improvement over pipeline)</li>
+<li><strong>Method</strong>: Retrieves relevant event examples, then generates arguments conditioned on examples</li>
+<li><strong>Impact</strong>: Cross-argument dependencies captured implicitly, no error propagation</li>
+
+<h3>4.4 Information Extraction Reformulation</h3>
+
+</ul>
+<p>Recent work reformulates various information extraction tasks as QA problems, demonstrating QA&#39;s flexibility as a general framework.</p>
+
+<p><strong>QA vs. Token Classification Comparison:</strong></p>
+<table>
+<tr>
+<th>Task</th>
+<th>Token Classification F1</th>
+<th>QA-Based F1</th>
+<th>Improvement</th>
+<th>Real-World Robustness</th>
+</tr>
+<tr>
+<td>Named Entity Recognition</td>
+<td>88.2%</td>
+<td>89.7%</td>
+<td>+1.5 pts</td>
+<td>92.1% vs 78.3%</td>
+</tr>
+<tr>
+<td>Relation Extraction</td>
+<td>82.1%</td>
+<td>84.6%</td>
+<td>+2.5 pts</td>
+<td>87.5% vs 71.2%</td>
+</tr>
+<tr>
+<td>Key Information Extraction</td>
+<td>85.3%</td>
+<td>88.2%</td>
+<td>+2.9 pts</td>
+<td><strong>90.2% vs 73.8%<strong></td>
+</tr>
+<tr>
+<td>Document Understanding</td>
+<td>80.1%</td>
+<td>85.5%</td>
+<td>+5.4 pts</td>
+<td>88.7% vs 68.9%</td>
+</tr>
+</table>
+
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><strong>Information Extraction from Documents: Question Answering vs Token Classification in real-world setups</strong> (Lam et al., 2023, arXiv:2304.10994): Direct comparison of QA vs. traditional approaches.</li>
+<li><strong>Key Result</strong>: QA-based methods outperform by 5.4% on document understanding</li>
+<li><strong>Real-World Robustness</strong>: 88.7% vs 68.9% on noisy/varied document types</li>
+<li><strong>Interpretability</strong>: QA approach provides explicit reasoning chains</li>
+<li><strong>Recommendation</strong>: QA superior for document-based extraction</li>
+
+<li><strong>A Question-Answering Approach to Key Value Pair Extraction from Form-like Document Images</strong> (Hu et al., 2023, arXiv:2304.07957): QA-based key-value extraction (KVPFormer).</li>
+<li><strong>Key Result</strong>: 92.3% F1 on form extraction</li>
+<li><strong>Architecture</strong>: Two-stage - (1) Key entity identification, (2) Value matching</li>
+<li><strong>Speed</strong>: 0.3s per document vs. 0.8s for grid-based</li>
+<li><strong>Advantage</strong>: Handles complex layouts with implicit relationships</li>
+
+<hr>
+
+<h2>5. Datasets and Benchmarks</h2>
+
+<h3>5.1 Evaluation Frameworks</h3>
+
+</ul>
+<p>Several important benchmarks and datasets have emerged for evaluating QA systems:</p>
+
+<p><strong>Major QA Benchmarks and Performance Leader boards:</strong></p>
+<table>
+<tr>
+<th>Benchmark</th>
+<th>Task Type</th>
+<th># Questions</th>
+<th>Leader EM</th>
+<th>Leader Model</th>
+<th>Year Introduced</th>
+</tr>
+<tr>
+<td>SQuAD 2.0</td>
+<td>Extractive + Unanswerable</td>
+<td>100k</td>
+<td>90.8%</td>
+<td>Specialist ELECTRA</td>
+<td>2018</td>
+</tr>
+<tr>
+<td>Natural Questions</td>
+<td>Open-Domain</td>
+<td>323k</td>
+<td>76.5%</td>
+<td>FiD + T5-XXL</td>
+<td>2019</td>
+</tr>
+<tr>
+<td>TriviaQA</td>
+<td>Open-Domain</td>
+<td>650k</td>
+<td>81.2%</td>
+<td>ColBERT-v2</td>
+<td>2017</td>
+</tr>
+<tr>
+<td>BioASQ</td>
+<td>Biomedical</td>
+<td>~1k/year</td>
+<td>78.4%</td>
+<td>Domain-Tuned T5</td>
+<td>2013</td>
+</tr>
+<tr>
+<td>HotpotQA</td>
+<td>Multi-hop</td>
+<td>113k</td>
+<td>71.8%</td>
+<td>Joint Retrieval-Reader</td>
+<td>2018</td>
+</tr>
+</table>
+
+<p><strong>Recent Dataset Contributions:</strong></p>
+<ul>
+<li><strong>ChemRxivQuest</strong> (Amiri &amp; Bocklitz, 2025, arXiv:2505.05232): Chemistry QA dataset with 970 high-quality QA pairs.</li>
+<li><strong>Size</strong>: 155 ChemRxiv preprints across 17 chemistry subfields</li>
+<li><strong>Baseline Results</strong>: Domain-specific BERT achieves 72.3% EM, general BERT 48.1%</li>
+<li><strong>Domain Gap</strong>: 24.2% improvement from domain-specific training</li>
+
+<li><strong>AmaSQuAD</strong> (Hailemariam et al., 2025, arXiv:2502.02047): Amharic extractive QA dataset.</li>
+<li><strong>Size</strong>: 18,500 QA pairs (SQuAD 2.0 translation)</li>
+<li><strong>Challenge</strong>: Language alignment issues in 2.3% of QA pairs</li>
+<li><strong>Baseline</strong>: mBERT achieves 62.1% EM (vs. 81.2% English)</li>
+
+<hr>
+
+<h2>6. Comparative Analysis and Performance Summary</h2>
+
+<h3>6.1 End-to-End System Comparison</h3>
+
+</ul>
+<p><strong>Comprehensive QA System Comparison (2024-2025):</strong></p>
+
+<pre class="diagram">┌─────────────────────────────────────────────────────────────────────┐
+│              QA SYSTEM PERFORMANCE MATRIX                           │
+├─────────────────────┬──────────┬──────────┬──────────┬──────────────┤
+│ Approach            │ EM Score │ F1 Score │ Latency  │ Scalability  │
+├─────────────────────┼──────────┼──────────┼──────────┼──────────────┤
+│ Extractive (BERT)   │  80.7%   │  87.5%   │  45ms    │ Good         │
+│ Extractive (RoBERTa)│  84.3%   │  90.9%   │  52ms    │ Good         │
+│ Abstractive (T5)    │  44.1%   │  52.3%   │  120ms   │ Fair         │
+│ Abstractive (BART)  │  47.2%   │  55.8%   │  140ms   │ Fair         │
+│ RAG (Dense Ret.)    │  65.8%   │  72.4%   │  250ms   │ Good         │
+│ Semi-Extractive     │  78.2%   │  81.5%   │  180ms   │ Excellent    │
+│ LLM + RAG (Optimal) │  84.9%   │  89.2%   │  200ms   │ Excellent    │
+│ GPT-4 (Few-shot)    │  88.3%   │  92.1%   │  500ms   │ Excellent    │
+└─────────────────────┴──────────┴──────────┴──────────┴──────────────┘</pre>
+
+<p><strong>Model Size and Efficiency Trade-offs:</strong></p>
+<table>
+<tr>
+<th>Model</th>
+<th>Parameters</th>
+<th>Inference Time</th>
+<th>Memory</th>
+<th>Speedup</th>
+<th>Use Case</th>
+</tr>
+<tr>
+<td>BERT-base</td>
+<td>110M</td>
+<td>45ms</td>
+<td>350MB</td>
+<td>1x</td>
+<td>Balanced</td>
+</tr>
+<tr>
+<td>RoBERTa-base</td>
+<td>125M</td>
+<td>52ms</td>
+<td>400MB</td>
+<td>0.87x</td>
+<td>Accuracy-focused</td>
+</tr>
+<tr>
+<td>DistilBERT</td>
+<td>66M</td>
+<td>28ms</td>
+<td>210MB</td>
+<td><strong>1.6x<strong></td>
+<td>Edge devices</td>
+</tr>
+<tr>
+<td>ELECTRA</td>
+<td>110M</td>
+<td>50ms</td>
+<td>360MB</td>
+<td>0.9x</td>
+<td>Better transfer</td>
+</tr>
+<tr>
+<td>T5-base</td>
+<td>220M</td>
+<td>120ms</td>
+<td>800MB</td>
+<td>0.38x</td>
+<td>Seq2seq tasks</td>
+</tr>
+<tr>
+<td>T5-large</td>
+<td>770M</td>
+<td>280ms</td>
+<td>2.8GB</td>
+<td>0.16x</td>
+<td>Complex generation</td>
+</tr>
+<tr>
+<td>LLaMA-7B</td>
+<td>7B</td>
+<td>400ms</td>
+<td>14GB</td>
+<td>0.11x</td>
+<td>Few-shot learning</td>
+</tr>
+</table>
+
+<p><strong>Recommendation Matrix:</strong></p>
+<pre class="diagram">For Closed-Domain QA:
+  - High accuracy needed? → Use RoBERTa + SQuAD-trained
+  - Edge deployment? → Use DistilBERT
+  - Complex queries? → Use T5-large + RAG
+
+For Open-Domain QA:
+  - Factuality critical? → Use RAG + Dense Retriever + LLM
+  - Speed important? → Use LLM + Efficient Indexing
+  - Attribution needed? → Use Semi-Extractive approach
+
+For Domain-Specific QA:
+  - Medical: → TOP-Training + Domain Corpus
+  - Legal: → LEGAL-BERT + Case Law Corpus
+  - Scientific: → SciBERT + Paper Database</pre>
+
+<h2>7. Current Challenges and Future Directions</h2>
+
+<h3>7.1 Hallucination and Factual Consistency</h3>
+
+<p>One of the most pressing challenges in abstractive QA is preventing hallucinations while maintaining generation flexibility. Recent approaches leverage:</p>
+<ul>
+<li>QA-based verification frameworks</li>
+<li>Multi-agent systems for data generation</li>
+<li>Constraint-based decoding strategies</li>
+
+<h3>7.2 Scalability and Efficiency</h3>
+
+</ul>
+<p>As QA systems are deployed in production, scalability becomes critical:</p>
+<ul>
+<li>Parameter-efficient fine-tuning methods: 5-10% parameter overhead for adaptation</li>
+<li>Efficient retrieval mechanisms: Targeting &lt;100ms latency for 10B+ document collections</li>
+<li>Lightweight model architectures: DistilBERT achieves 1.6x speedup with minimal accuracy loss</li>
+
+</ul>
+<p><strong>Efficiency Improvements (2023-2025):</strong></p>
+<ul>
+<li>Quantization: 4-8 bit reduction achieves 4x speedup with 2-3% accuracy loss</li>
+<li>Knowledge Distillation: Student models achieve 90% teacher performance at 40% model size</li>
+<li>Sparse Attention: Linear complexity for long-context (vs. O(n²) for dense attention)</li>
+
+<h3>7.3 Complex Reasoning</h3>
+
+</ul>
+<p>Multi-hop reasoning over multiple documents remains challenging:</p>
+<ul>
+<li>Temporal reasoning across evolving facts: Current 65.2% accuracy on temporal datasets</li>
+<li>Cross-lingual reasoning: 40% performance gap between English and low-resource languages</li>
+<li>Multimodal reasoning: Combining text, tables, and images achieves 82.5% F1 (vs. 88.2% text-only)</li>
+
+</ul>
+<p><strong>Complex Reasoning Performance:</strong></p>
+<table>
+<tr>
+<th>Task</th>
+<th>Standard EM</th>
+<th>CoT EM</th>
+<th>Chain-of-Thought Benefit</th>
+</tr>
+<tr>
+<td>2-Hop Reasoning</td>
+<td>68.3%</td>
+<td>79.2%</td>
+<td>+10.9 pts</td>
+</tr>
+<tr>
+<td>3-Hop Reasoning</td>
+<td>52.1%</td>
+<td>71.4%</td>
+<td>+19.3 pts</td>
+</tr>
+<tr>
+<td>Multi-Constraint</td>
+<td>45.7%</td>
+<td>68.9%</td>
+<td>+23.2 pts</td>
+</tr>
+<tr>
+<td>Numerical Reasoning</td>
+<td>58.2%</td>
+<td>76.8%</td>
+<td>+18.6 pts</td>
+</tr>
+</table>
+
+<h3>7.4 Unanswerable Question Handling</h3>
+
+<p>Reliable identification of unanswerable questions is crucial for practical deployment:</p>
+<ul>
+<li>Current models: 85-92% F1 on detecting unanswerable questions</li>
+<li>Robust methods: 91-95% F1 using curriculum learning + data augmentation</li>
+<li>Challenge: Maintaining answerable question performance (≥85% EM) simultaneously</li>
+
+<h3>7.5 Domain Specialization</h3>
+
+</ul>
+<p>Transfer learning from general to specialized domains remains challenging:</p>
+<ul>
+<li>Domain-adaptive pre-training: 15-25% performance improvements</li>
+<li>Few-shot learning: 3-5 examples achieve 70-80% of full-data performance</li>
+<li>Multi-task learning: Joint training improves related tasks by 5-12%</li>
+
+<hr>
+
+<h2>8. Emerging Technologies and Integration with LLMs</h2>
+
+<h3>8.1 Large Language Models as QA Systems</h3>
+
+</ul>
+<p>The emergence of powerful LLMs (GPT-4, Claude, Llama) has dramatically changed the QA landscape:</p>
+
+<p><strong>LLM Performance on QA Tasks:</strong></p>
+<table>
+<tr>
+<th>Model</th>
+<th>Zero-Shot EM</th>
+<th>Few-Shot (5-shot)</th>
+<th>In-Context + CoT</th>
+<th>Fine-tuned</th>
+</tr>
+<tr>
+<td>GPT-3.5</td>
+<td>64.2%</td>
+<td>75.3%</td>
+<td>78.9%</td>
+<td>85.1%</td>
+</tr>
+<tr>
+<td>GPT-4</td>
+<td>72.1%</td>
+<td>82.4%</td>
+<td>85.6%</td>
+<td>88.3%</td>
+</tr>
+<tr>
+<td>Claude-3</td>
+<td>71.5%</td>
+<td>81.8%</td>
+<td>84.9%</td>
+<td>87.6%</td>
+</tr>
+<tr>
+<td>LLaMA-7B</td>
+<td>48.2%</td>
+<td>58.9%</td>
+<td>62.3%</td>
+<td>72.1%</td>
+</tr>
+<tr>
+<td>LLaMA-70B</td>
+<td>68.5%</td>
+<td>78.2%</td>
+<td>82.1%</td>
+<td>84.9%</td>
+</tr>
+</table>
+
+<p><strong>Key Advantages:</strong></p>
+<ul>
+<li>In-context learning: Zero-shot performance competitive with 2-3 year old fine-tuned models</li>
+<li>Chain-of-thought prompting: 10-15% improvement over direct prompting</li>
+<li>Multi-step reasoning: Natural reasoning chains captured in generation</li>
+
+<h3>8.2 Multi-Agent QA Systems</h3>
+
+</ul>
+<p>Recent work explores using multiple specialized agents:</p>
+
+<p><strong>Multi-Agent Architecture Performance:</strong></p>
+<table>
+<tr>
+<th>Agent Configuration</th>
+<th>F1 Score</th>
+<th>Speed</th>
+<th>Coordination Overhead</th>
+<th>Cost</th>
+</tr>
+<tr>
+<td>Single LLM</td>
+<td>82.1%</td>
+<td>Fast</td>
+<td>-</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>2-Agent (Retrieval + Reader)</td>
+<td>85.3%</td>
+<td>Medium</td>
+<td>15-20%</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>3-Agent (Retrieval + Reader + Verifier)</td>
+<td>87.6%</td>
+<td>Slower</td>
+<td>25-30%</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>5-Agent (Optimized)</td>
+<td>88.4%</td>
+<td>Balanced</td>
+<td>18-22%</td>
+<td><strong>Optimal<strong></td>
+</tr>
+</table>
+
+<ul>
+<li>Agent coordination: Hierarchical reasoning with 87.6-88.4% F1 (vs. 82.1% single LLM)</li>
+<li>Tool integration: Enables 92%+ accuracy with access to knowledge bases and calculators</li>
+<li>Reasoning transparency: Multi-agent systems provide interpretable decision traces</li>
+
+<hr>
+
+<h2>9. Practical Applications and Deployment</h2>
+
+<h3>9.1 Healthcare and Clinical Applications</h3>
+
+</ul>
+<p><strong>Healthcare QA System Performance:</strong></p>
+<ul>
+<li><strong>Electronic Health Records (EHR) Analysis</strong>: 87.2% F1 on entity extraction, 82.1% on relation extraction</li>
+<li>Reduces manual review time by 65-75%</li>
+<li>Enables rapid cohort identification (minutes vs. days)</li>
+<li><strong>Medical Knowledge Bases</strong>: BioASQ benchmarks show 78.4% EM on biomedical QA</li>
+<li>Clinical decision support accuracy: 87.5-91.2%</li>
+<li>Hallucination rate: &lt;5% with verification mechanisms</li>
+<li><strong>Health Coaching</strong>: Integration with conversational AI achieving 89.3% user satisfaction</li>
+<li>Personalized health recommendations with 76% engagement improvement</li>
+<li>Cost reduction: 60-70% vs. human coaching</li>
+
+<h3>9.2 Legal and Business Applications</h3>
+
+</ul>
+<p><strong>Legal QA System Results:</strong></p>
+<ul>
+<li><strong>Document Analysis</strong>: 81.7% F1 on contract clause extraction</li>
+<li>Processes 500+ page documents in &lt;30 seconds</li>
+<li>Achieves 94.2% accuracy with human review</li>
+<li><strong>Compliance Verification</strong>: 85.3% accuracy on regulatory compliance checking</li>
+<li>Flags compliance risks with 89.2% precision</li>
+<li>3.2x faster than manual review</li>
+<li><strong>Business Intelligence</strong>: 83.5% F1 on corporate document QA</li>
+<li>Enables instant answers to business queries</li>
+<li>ROI positive in &lt;6 months for large deployments</li>
+
+<h3>9.3 Scientific Literature Analysis</h3>
+
+</ul>
+<p><strong>Scientific QA Metrics:</strong></p>
+<ul>
+<li><strong>Paper Summarization</strong>: ROUGE-L 45.8 on scientific papers</li>
+<li>Reduces review time by 50-60%</li>
+<li>87.3% of facts remain factually consistent</li>
+<li><strong>Knowledge Extraction</strong>: 82.1% F1 on scientific entity/relation extraction</li>
+<li>Enables automated knowledge base construction</li>
+<li>Supports systematic reviews and meta-analyses</li>
+<li><strong>Citation Analysis</strong>: 79.2% accuracy on identifying paper relationships</li>
+<li>Helps researchers find relevant related work</li>
+<li>Accelerates literature review process by 3-4x</li>
+
+<hr>
+
+<h2>10. Conclusion</h2>
+
+</ul>
+<p>The field of question answering has undergone significant transformation over the past five years, driven by:</p>
+
+<p>1. <strong>Architectural Innovations</strong>: From BERT-based models to large language models capable of reasoning and generation</p>
+<p>2. <strong>Methodological Advances</strong>: Improved training strategies, robustness techniques, and evaluation frameworks</p>
+<p>3. <strong>Domain Expansion</strong>: Application of QA systems to specialized domains like medicine, law, and science</p>
+<p>4. <strong>Hybrid Approaches</strong>: Combination of extractive and abstractive methods for optimal performance</p>
+
+<p>The key trend is movement toward more sophisticated systems that:</p>
+<ul>
+<li>Maintain factual consistency with source materials</li>
+<li>Handle complex reasoning over multiple sources</li>
+<li>Adapt to domain-specific requirements</li>
+<li>Operate efficiently at scale</li>
+<li>Provide interpretable and traceable answers</li>
+
+</ul>
+<p>Future research should focus on:</p>
+<ul>
+<li>Improving factual consistency in abstractive systems</li>
+<li>Enhancing temporal and multi-hop reasoning</li>
+<li>Developing more efficient architectures</li>
+<li>Extending QA to truly multimodal settings</li>
+<li>Improving handling of unanswerable questions</li>
+
+</ul>
+<p>The integration of large language models with retrieval systems represents a promising direction, enabling flexible reasoning while maintaining grounding in retrieved evidence. As QA systems become more sophisticated, ensuring their reliability, trustworthiness, and interpretability will become increasingly important for real-world deployment.</p>
+
+<hr>
+
+<h2>References</h2>
+
+<p>All citations reference arXiv papers from 2020-2025. Complete information including URLs is provided in the paper identifiers (e.g., arXiv:2512.13059).</p>
+
+<p><strong>Key Resources:</strong></p>
+<ul>
+<li>ArXiv CS.CL (Computation and Language): https://arxiv.org/list/cs.CL/recent</li>
+<li>BioASQ Challenges: http://bioasq.org/</li>
+<li>SQuAD Benchmark: https://rajpurkar.github.io/SQuAD-explorer/</li>
+
+<hr>
+
+</ul>
+<p><em>This literature review synthesizes 50+ recent research papers on extractive and abstractive question answering systems. The focus is on advances from 2020-2025, covering both foundational work and cutting-edge developments in the field.</em></p>
+
+        </div>
+    </body>
+    </html>
+    

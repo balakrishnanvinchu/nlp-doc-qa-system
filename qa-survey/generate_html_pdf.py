@@ -2,9 +2,17 @@
 """
 Convert markdown literature review to high-quality PDF using HTML template
 This approach preserves tables, diagrams, and formatting properly
+
+Usage:
+    python generate_html_pdf.py <input_md_file> [output_html_file] [output_pdf_file]
+
+Examples:
+    python generate_html_pdf.py Literature_Review_QA_Systems.md
+    python generate_html_pdf.py input.md output.html output.pdf
 """
 import os
 import re
+import sys
 from pathlib import Path
 
 def create_html_from_markdown(md_file):
@@ -394,10 +402,40 @@ def escape_html(text):
             .replace("'", '&#39;'))
 
 if __name__ == '__main__':
-    md_file = '/Users/bvs/Documents/assignments/NLP/Literature_Review_QA_Systems.md'
-    html_file = '/Users/bvs/Documents/assignments/NLP/Literature_Review_QA_Systems.html'
+    # Parse command-line arguments
+    if len(sys.argv) < 2:
+        print("Usage: python generate_html_pdf.py <input_md_file> [output_html_file] [output_pdf_file]")
+        print("\nExamples:")
+        print("  python generate_html_pdf.py Literature_Review_QA_Systems.md")
+        print("  python generate_html_pdf.py input.md output.html output.pdf")
+        sys.exit(1)
+    
+    # Get input markdown file
+    md_file = sys.argv[1]
+    
+    # Check if input file exists
+    if not os.path.exists(md_file):
+        print(f"✗ Error: Input file '{md_file}' not found!")
+        sys.exit(1)
+    
+    # Generate output filenames
+    if len(sys.argv) >= 3:
+        html_file = sys.argv[2]
+    else:
+        # If not specified, use same name with .html extension
+        base_name = os.path.splitext(md_file)[0]
+        html_file = f"{base_name}.html"
+    
+    if len(sys.argv) >= 4:
+        pdf_file = sys.argv[3]
+    else:
+        # If not specified, use same name with .pdf extension
+        base_name = os.path.splitext(md_file)[0]
+        pdf_file = f"{base_name}.pdf"
     
     print(f"Converting {md_file} to HTML...")
+    print(f"  Input:  {os.path.abspath(md_file)}")
+    print(f"  Output: {os.path.abspath(html_file)}")
     
     try:
         html_content = create_html_from_markdown(md_file)
@@ -406,7 +444,7 @@ if __name__ == '__main__':
             f.write(html_content)
         
         print(f"✓ HTML generated successfully: {html_file}")
-        print(f"\nFile size: {os.path.getsize(html_file) / 1024:.1f} KB")
+        print(f"  File size: {os.path.getsize(html_file) / 1024:.1f} KB")
         
         # Convert HTML to PDF using weasyprint
         print("\nConverting HTML to PDF using weasyprint...")
@@ -414,7 +452,6 @@ if __name__ == '__main__':
         try:
             from weasyprint import HTML
             
-            pdf_file = html_file.replace('.html', '.pdf')
             HTML(string=open(html_file).read()).write_pdf(pdf_file)
             
             pdf_size = os.path.getsize(pdf_file) / 1024 / 1024
