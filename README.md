@@ -329,7 +329,7 @@ Educational use - BITS WILP Assignment
 
 ## Contact
 
-For issues or questions, contact: Gourav Sharma (gouravsharma@wilp.bits-pilani.ac.in)
+For issues or questions, contact: Balakrishnan V S (2024aa05017@wilp.bits-pilani.ac.in)
 
 ---
 
